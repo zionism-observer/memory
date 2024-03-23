@@ -57,4 +57,9 @@ class YouTube extends Model
     protected $casts = [
         'upload_date' => 'timestamp',
     ];
+
+    public function source(): BelongsTo
+    {
+        return $this->belongsTo(Source::class);
+    }
 }
