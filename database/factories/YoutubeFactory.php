@@ -4,16 +4,16 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\YouTube;
+use App\Models\Youtube;
 
-class YouTubeFactory extends Factory
+class YoutubeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = YouTube::class;
+    protected $model = Youtube::class;
 
     /**
      * Define the model's default state.

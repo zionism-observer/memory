@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class YouTube extends Model
+class Youtube extends Model
 {
     use HasFactory;
 
@@ -57,9 +57,4 @@ class YouTube extends Model
     protected $casts = [
         'upload_date' => 'timestamp',
     ];
-
-    public function source(): BelongsTo
-    {
-        return $this->belongsTo(Source::class);
-    }
 }
