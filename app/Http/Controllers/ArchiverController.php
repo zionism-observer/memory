@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Archiver\TwitterArchiver;
+use App\Archiver\YouTubeArchiver;
 use App\Archiver\WebPageArchiver;
 use App\Models\Source;
 use Illuminate\Http\Client\Response;
@@ -17,7 +18,7 @@ class ArchiverController extends Controller
 
     public function __invoke(Request $request)
     {
-        $this->ensureValidUrl($request);
+        $this->ensureValidUrl($request); 
         $this->url = $request->input('url');
         $this->source = Source::create(['url' => $this->url]);
         return $this->archive();
@@ -37,6 +38,8 @@ class ArchiverController extends Controller
     {
         if (TwitterArchiver::isTwitter($this->url))
             return new TwitterArchiver($this->source);
+        elseif (YouTubeArchiver::isYouTube($this->url))
+            return new YouTubeArchiver($this->source);
         else
             return new WebPageArchiver($this->source);
     }
