@@ -80,7 +80,8 @@ class YoutubeArchiver extends Archiver
         $this->downloader->setBinPath(Storage::disk('local')->path('/dependencies/yt-dlp'));
         $options = Options::create()
             ->downloadPath($this->videoPath)
-            ->url($this->url);
+            ->url($this->url)
+            ->output('%(id)s.%(ext)s');
         
         $videos = $this->downloader->download($options)->getVideos();
 
@@ -106,10 +107,10 @@ class YoutubeArchiver extends Archiver
     private function hydrateVideo(): void
     {
         $this->youtube->source_id = $this->source->id;
-        $this->youtube->id = $this->videoFromYtdlp->getId();
-        $this->youtube->video = $this->videoPath;
+        $this->youtube->youtube_id = $this->videoFromYtdlp->getId();
         $this->youtube->title = $this->videoFromYtdlp->getTitle();
         $this->youtube->extension = $this->videoFromYtdlp->getExt();
+        $this->youtube->video = $this->videoPath . '' . $this->youtube->youtube_id . '.' . $this->youtube->extension;
         $this->youtube->uploader = $this->videoFromYtdlp->getUploader();
         $this->youtube->uploader_url = $this->videoFromYtdlp->getUploaderUrl();
         $this->youtube->upload_date = $this->videoFromYtdlp->getUploadDate();
