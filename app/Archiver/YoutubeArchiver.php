@@ -4,8 +4,6 @@ namespace App\Archiver;
 
 use App\Models\Source;
 use App\Models\Youtube;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use YoutubeDl\Options;
 use YoutubeDl\YoutubeDl;
