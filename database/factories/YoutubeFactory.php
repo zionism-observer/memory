@@ -22,6 +22,7 @@ class YoutubeFactory extends Factory
     {
         return [
             'source_id' => $this->faker->word(),
+            'youtube_id' => $this->faker->word(),
             'video' => $this->faker->word(),
             'title' => $this->faker->sentence(4),
             'extension' => $this->faker->word(),

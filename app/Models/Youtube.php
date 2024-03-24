@@ -16,6 +16,7 @@ class Youtube extends Model
      */
     protected $fillable = [
         'source_id',
+        'youtube_id',
         'video',
         'title',
         'extension',
@@ -63,8 +64,7 @@ class Youtube extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'string',
-        'source_id' => 'integer',
+        'id' => 'integer',
         'upload_date' => 'datetime',
         'duration' => 'float',
         'tbr' => 'float',

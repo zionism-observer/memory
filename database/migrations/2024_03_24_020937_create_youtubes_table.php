@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('youtubes', function (Blueprint $table) {
+            $table->id();
             $table->string('source_id');
-            $table->string('id')->primary();
+            $table->string('youtube_id');
             $table->string('video');
             $table->string('title');
             $table->string('extension');
